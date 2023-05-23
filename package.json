@@ -1,0 +1,22 @@
+{
+  "name": "ing-web-vue",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "vue": "^3.3.2",
+    "vue-router": "^4.2.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "node-sass": "^9.0.0",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.3.0",
+    "vite": "^4.3.5"
+  }
+}
