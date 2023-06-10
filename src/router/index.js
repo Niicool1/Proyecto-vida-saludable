@@ -1,26 +1,17 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import Inicio from '@/views/Inicio.vue'
-import iniciarSesion from '@/Formularios/iniciarSesion.vue'
-import Registro from '@/Formularios/registro.vue'
-import alimentosRecomendados from '@/views/alimentosRecomendados.vue'
-import calculadoraCalorias from '@/views/calculadoraCalorias.vue'
-import caloriasDiarias from '@/views/caloriasDiarias.vue'
-import informacionNutricional from '@/views/informacionNutricional.vue'
-import perfilUsuario from '@/views/perfilUsuario.vue'
-import seguiminentoDeportivo from '@/views/seguimientoDeportivo.vue'
 
 //si no se agregar las paginas aqui no se van a poder ver en el navegador
 const routes = [
     {path: '/', name:'Inicio',component: Inicio},
-    {path: '/iniciarSesion', name:'Iniciar Sesion',component: iniciarSesion},
-    {path: '/registro', name:'Registro',component: Registro},
-    {path: '/alimentosRecomendados', name:'Alimentos Recomendados',component: alimentosRecomendados},
-    {path: '/calculadoraCalorias', name:'Calculadora Calorías',component: calculadoraCalorias},
-    {path: '/caloriasDiarias', name:'Calorías Diarias',component: caloriasDiarias},
-    {path: '/informacionNutricional', name:'Información Nutricional',component: informacionNutricional},
-    {path: '/perfilUsuario', name:'Perfil Usuario',component: perfilUsuario},
-    {path: '/seguiminentoDeportivo', name:'Seguimineto Deportivo',component: seguiminentoDeportivo}
-
+    {path: '/iniciarSesion', name:'Iniciar Sesion', component: ()=>import('@/Formularios/iniciarSesion.vue')},
+    {path: '/registro', name:'Registro', component: ()=>import('@/Formularios/registro.vue')},
+    {path: '/alimentosRecomendados', name:'Alimentos Recomendados', component: ()=>import('@/views/alimentosRecomendados.vue')},
+    {path: '/calculadoraCalorias', name:'Calculadora Calorías', component: ()=>import('@/views/calculadoraCalorias.vue')},
+    {path: '/caloriasDiarias', name:'Calorías Diarias', component: ()=>import('@/views/caloriasDiarias.vue')},
+    {path: '/informacionNutricional', name:'Información Nutricional', component: ()=>import('@/views/informacionNutricional.vue')},
+    {path: '/perfilUsuario', name:'Perfil Usuario', component: ()=>import('@/views/perfilUsuario.vue')},
+    {path: '/seguimientoDeportivo', name:'Seguimiento Deportivo', component: ()=>import('@/views/seguimientoDeportivo.vue')},
 ]
 
 const router = createRouter({

@@ -21,3 +21,7 @@
 
 
 </template>
+
+<style lang ="scss" scoped>
+    @import '@/assets/mainstyles.scss';
+</style>
