@@ -1,3 +1,9 @@
+<script setup>
+  import ElNavegador from '@/components/ElNavegador.vue';
+  import ElPie from '@/components/ElPie.vue';
+</script>
+
+
 
 <template>
 
@@ -11,13 +17,3 @@
   <ElPie/>
 
 </template>
-
-
-<script>
-  import ElNavegador from '@/components/ElNavegador.vue';
-  import ElPie from '@/components/ElPie.vue';
-  export default {
-    components: {ElNavegador,ElPie}
-  }
-
-</script>

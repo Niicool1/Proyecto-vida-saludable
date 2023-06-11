@@ -32,6 +32,7 @@ body{background-color: $color-fondo !important;}
     .form{
         
         @include botones;
+
         
         .titulo-form{
     
@@ -68,6 +69,7 @@ body{background-color: $color-fondo !important;}
                 font-size: 15px;
             }
         }
+
 
     }
 }
