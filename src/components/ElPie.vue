@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-light text-center text-lg-start">
+    <footer class="pie bg-dark-subtle bg-gradient text-center text-lg-start">
     <!-- Grid container -->
     <div class="container p-4">
       <!--Grid row-->
@@ -36,3 +36,17 @@
 </footer>
 
 </template>
+
+<style scoped>
+
+
+.pie {
+  position:relative;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+</style>
