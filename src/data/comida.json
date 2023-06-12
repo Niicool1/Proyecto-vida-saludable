@@ -1,0 +1,73 @@
+
+
+[
+    {
+        "id" : 1,
+        "alimento": "Nueces",
+        "porcion": "100g",
+        "calorias": "654",
+        "proteinas": "15,23",
+        "carbohidratos": "13,71",
+        "grasa": "65,21"
+
+    },
+    {
+        "id" : 2,
+        "alimento": "Avena",
+        "porcion": "100g",
+        "calorias": "389",
+        "proteinas": "16,89",
+        "carbohidratos": "66,27",
+        "grasa": "6,9"
+    },
+    {
+        "id" : 3,
+        "alimento": "Croissants",
+        "porcion": "1 mediana",
+        "calorias": "231",
+        "proteinas": "4,67",
+        "carbohidratos": "26,11",
+        "grasa": "11,97"
+    },
+    {
+        "id" : 4,
+        "alimento": "Palta",
+        "porcion": "1 palta",
+        "calorias": "322",
+        "proteinas": "4,02",
+        "carbohidratos": "17,15",
+        "grasa": "29,47"
+    },
+    {
+        "id" : 5,
+        "alimento": "Huevo",
+        "porcion": "1 huevo",
+        "calorias": "74",
+        "proteinas": "6,29",
+        "carbohidratos": "0,38",
+        "grasa": "4,97"
+    },
+    {
+        "id" : 6,
+        "alimento": "Leche Entera",
+        "porcion": "1 taza (244ml)",
+        "calorias": "146",
+        "proteinas": "7,86",
+        "carbohidratos": "11,03",
+        "grasa": "7,93"
+    },
+    {
+        "id" : 7,
+        "alimento": "Brócoli",
+        "porcion": "100g",
+        "calorias": "34",
+        "proteinas": "2,82",
+        "carbohidratos": "6,64",
+        "grasa": "0,37"
+    }
+
+]
+   
+
+
+

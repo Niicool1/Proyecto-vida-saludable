@@ -42,7 +42,7 @@
             },
 
             confirmpassword: {
-                required: helpers.withMessage("Confirmar contraseña",required),
+                required: helpers.withMessage("Confirmar contraseña ",required),
                 sameAs: helpers.withMessage("Las contraseñas no coinciden",sameAs(formData.password))
             },
             rut: {

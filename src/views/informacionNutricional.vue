@@ -1,46 +1,51 @@
+
+<script>
+    import DataComida from '@/data/comida.json'
+    export default{
+          data(){
+              return{
+                  Alimentos: DataComida
+              }
+          }
+      }
+
+</script>
+
+
 <template>
-    <div class="InformacionNutricional">
-        
-        <main class="p-1">
-            <section class="m-4 p-1">
-            <div class="m-1" id="informacion">
-                <li>Información alimentos</li>
-            </div>
-            <div class="col-3">
-                    <label for="buscarAlimento" class="form-label"></label>
-                    <input type="text" class="form-control form-control" id="buscarAlimento" placeholder="Buscar alimento por nombre">
 
-            </div>
-            </section>
-            <section>
-            <ul class="row" id="infoAlimento">
-                <li class="col">
-                    <div class="card" style="width: 40rem; height: 50rem;">
-                        <img src="images/manzana.jpg" class="card-img-top" alt="...">
+    <div class="container InformacionNutricional">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+                
+                <p v-for="comida in Alimentos">
+                
+                    <div class="cajas card" style="width: 18rem;">
+
                         <div class="card-body">
-                        <h5 class="card-title" style="font-weight: 600;">Nombre del alimento</h5>
-                        <p class="card-text">Cantidad de calorias e información nutricional</p>
-                        
+                            <h5 class="card-title">{{ comida.alimento}}</h5>
+                            <p class="card-text">Información nuticional: </p>
+                            <p class="card-text">Porción: {{ comida.porcion}} </p>
                         </div>
+                        <ul class="list-group list-group-flush">
+                            
+                            <li class="list-group-item">Calorías : {{ comida.calorias}}k/cal</li>
+                            <li class="list-group-item">Proteínas : {{ comida.proteinas}}g</li>
+                            <li class="list-group-item">Carbohidratos : {{ comida.carbohidratos}}g</li>
+                            <li class="list-group-item">Grasas : {{ comida.grasa}}g</li>
+                        </ul>
                     </div>
-                </li>
-                <li class="col">
-                    <div class="card" style="width: 40rem; height: 50rem;">
-                        <img src="images/papa.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                        <h5 class="card-title" style="font-weight: 600;">Nombre del alimento</h5>
-                        <p class="card-text">Cantidad de calorias e información nutricional</p>
-                        
-                        </div>
-                    </div>
-                </li>
 
-            </ul>
-            </section>
-        </main>
-
+                
+                </p>
+            </div>
+        </div>
     </div>
+
 </template>
+
+
+
 
 <style lang ="scss" scoped>
     @import '@/assets/mainstyles.scss';

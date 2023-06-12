@@ -1,0 +1,20 @@
+
+
+.container{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    .cajas {
+        
+        display: flex;
+        margin: auto;
+        background: #fff;
+        border-radius: 5px;
+        overflow: hidden;
+        -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+        -webkit-transition: 0.1s;
+        transition: 0.1s;
+    }
+
+
+}

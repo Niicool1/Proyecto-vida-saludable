@@ -1,0 +1,24 @@
+
+{
+    "usuarios": [
+        {
+            "correo": "mariaperez@gmail.com",
+            "rut": "18.450.783-1",
+            "contrasenya": "856524asdf"
+        },
+        {
+            "correo": "juanmartinez@gmail.com",
+            "rut": "15.785.262-4",
+            "contrasenya": "487211pepo"
+        },
+        {
+            "correo":"guillermofuenzalida@gmail.com",
+            "rut": "13.539.824-4",
+            "contrasenya": "nori921572"
+        }
+    ]
+    
+   
+}
+
+
