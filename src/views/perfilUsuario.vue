@@ -4,7 +4,7 @@
         <main class="p-5">
             <section>
                 <div class="fotoPerfil">
-                    <img src="images/perfil.png" class="rounded-circle img-thumbnail">
+                    
                 </div>
                 <ul class="Perfil">
                     <h5>Nombre de perfil</h5>

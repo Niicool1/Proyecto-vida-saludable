@@ -15,6 +15,10 @@
 <template>
     <div class="container-fluid bg-light bg-gradient">
         <div class="container InformacionNutricional">
+            <div class="m-2">
+                <h5>Información nutricional sobre distintos alimentos: </h5>
+            </div>
+
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
                     
                 <p v-for="comida in Alimentos">

@@ -1,12 +1,14 @@
 
 .container{
+    h5{
+        margin-bottom: 30px;
+    }
 
     height:max-content;
    
     padding-top: 25px;
     padding-bottom: 25px;
     .cajas {
-        
         display: flex;
         margin: auto;
         background: #fff;
