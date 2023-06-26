@@ -1,11 +1,8 @@
 <script setup>
     import { reactive, computed } from 'vue';
     import { useVuelidate } from '@vuelidate/core'
+    import{registerRequest} from '../api/auth.js'
     
-
-   
-
-
     import { 
         required,
         email,
@@ -13,13 +10,7 @@
         sameAs,
         helpers,
         
-        
-
-
     } from '@vuelidate/validators'
-
-
- 
 
     const formData = reactive({
         email: "",
@@ -28,6 +19,7 @@
         rut: "",
         caja: "",
     });
+
 
     const rules = computed (() => {
         return{ 
@@ -62,8 +54,9 @@
     const submitForm = async () => {
         const result = await v$.value.$validate();
         if (result) {
-            alert("Se mando el formulario")
-            
+            console.log(formData);   
+            const res = registerRequest(formData);
+            console.log(res)
         }
     };
 

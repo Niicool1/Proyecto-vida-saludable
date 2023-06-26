@@ -29,6 +29,7 @@
     const submitForm = async () => {
         const result = await v$.value.$validate();
         if (result) {
+            console.log(formData)
             //alert("Se mando el formulario")
             
 
