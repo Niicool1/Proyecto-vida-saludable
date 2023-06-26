@@ -10,11 +10,15 @@ import {
 
 import { authRequired } from '../middlewares/validateToken.js'
 
+import { registerSchema, loginSchema } from '../schemas/auth.schemas.js'
+
+import { validateSchema } from '../middlewares/validator.middlewares.js'
+
 const router = Router();
 
-router.post('/register', register);
+router.post('/register', validateSchema(registerSchema), register);
 
-router.post('/login', login);
+router.post('/login', validateSchema(loginSchema), login);
 
 router.post("/logout", logout);
 

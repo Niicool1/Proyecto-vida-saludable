@@ -40,7 +40,7 @@ export const login = async (req, res) => {
         const isMatch = await bcrypt.compare(password, userFound.password);
         //validacion contrasenna usuario
 
-        if (!isMatch) return res.status(400).json({ message: "contrasenna mala" });
+        if (!isMatch) return res.status(400).json({ message: "contraseña incorrecta" });
 
         const token = await createAccessToken({ id: userFound._id });
 
