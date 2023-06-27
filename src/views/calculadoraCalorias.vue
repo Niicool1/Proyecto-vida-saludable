@@ -1,41 +1,58 @@
 <template>
-    <div class="container-fluid bg-light bg-gradient">
-        <div class="container calculadoraAlimentos">
-            <div id="recomendacion">
-                <li>Calculadora de calorias</li>
-                <li>Modo simple</li> 
-            </div>
-            <div class="row">
-                <div class="col-2">
-                    <input type="text" class="form-control" placeholder="Ingrese su peso" aria-label="Peso">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Calculadora de IMC</h1>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form @submit.prevent="calculateBMI">
+                    <div class="form-group">
+                        <label for="weight">Peso (kg)</label>
+                        <input type="number" class="form-control" id="weight" v-model.number="weight" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="height">Altura (cm)</label>
+                        <input type="number" class="form-control" id="height" v-model.number="height" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Calcular</button>
+                </form>
+                <div v-if="bmi" class="mt-4">
+                    <h3>Tu IMC: {{ bmi }}</h3>
+                    <p>{{ bmiCategory }}</p>
                 </div>
-                <div class="col-2">
-                    <input type="text" class="form-control" placeholder="Ingrese su altura" aria-label="Altura">
-                </div>
-                <div class="btn-group dropend col-1">
-                    <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        Actividad
-                    </button>
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Actividad deportiva nula</a></li>
-                    <li><a class="dropdown-item" href="#">Actividad deportiva regular</a></li>
-                    <li><a class="dropdown-item" href="#">Intensa actividad deportiva</a></li>
-                    </ul>
-                </div>    
             </div>
-            <div class="col-1">
-                <button class="btn btn-primary" type="submit">Calcular</button>
-            </div>
-            <div class="infoCalorias">
-                <p>Informacion sobre la cantidad de calorias que deberia consumir</p>
-            </div>
-
         </div>
-
     </div>
-    
 </template>
-
+  
+<script>
+    export default {
+        data() {
+            return {
+                weight: null,
+                height: null,
+                bmi: null,
+                bmiCategory: null
+            }
+        },
+        methods: {
+            calculateBMI() {
+                const heightInMeters = this.height / 100;
+                this.bmi = (this.weight / (heightInMeters * heightInMeters)).toFixed(1);
+                if (this.bmi < 18.5) {
+                    this.bmiCategory = 'Bajo peso';
+                } else if (this.bmi >= 18.5 && this.bmi <= 24.9) {
+                    this.bmiCategory = 'Peso normal';
+                } else if (this.bmi >= 25 && this.bmi <= 29.9) {
+                    this.bmiCategory = 'Sobrepeso';
+                } else {
+                    this.bmiCategory = 'Obesidad';
+                }
+            }
+        }
+    }
+</script>
 <style lang ="scss" scoped>
+    .btn {
+      margin-top: 25px;
+    }
     @import '@/assets/mainstyles.scss';
 </style>

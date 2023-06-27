@@ -4,7 +4,9 @@ import {
     login,
     register,
     logout,
-    profile
+    profile,
+    verifyToken
+    
 } from '../controllers/auth.controller.js'
 
 
@@ -23,5 +25,7 @@ router.post('/login', validateSchema(loginSchema), login);
 router.post("/logout", logout);
 
 router.get("/profile", authRequired, profile);
+
+router.get("/verify", verifyToken);
 
 export default router 

@@ -64,7 +64,7 @@
         <section class="container">
             <div class="form">
                 <div class="titulo-form"><label>Iniciar sesión</label></div> 
-                <form @submit.prevent.="submitForm" id="form" action="" method="get" novalidate>
+                <form @submit.prevent="submitForm" id="form" action="" method="get" novalidate>
                     
                     
         
