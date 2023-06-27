@@ -2,6 +2,7 @@
     import { reactive, computed } from 'vue';
     import { useVuelidate } from '@vuelidate/core'
     import{registerRequest} from '../api/auth.js'
+    import router from '../router';
     
     import { 
         required,
@@ -49,16 +50,31 @@
     });
 
     const v$ = useVuelidate(rules, formData);
-   
- 
-    const submitForm = async () => {
+    const state = reactive({
+    hasError: false,
+    });
+
+     
+    async function submitForm() {
         const result = await v$.value.$validate();
         if (result) {
-            console.log(formData);   
-            const res = registerRequest(formData);
-            console.log(res)
+            console.log(formData);
+
+            try {
+                const res = await registerRequest(formData);
+                console.log(res);
+                state.hasError = false;
+                router.push({ name: 'Inicio' });
+
+            } catch (error) {
+                state.hasError = true;
+                console.error(error)
+            }
         }
-    };
+    }
+
+
+
 
     
 </script>
@@ -71,8 +87,10 @@
                 <div class="titulo-form"><label>Registrarse</label></div>
                 <form @submit.prevent="submitForm" id="form" action="" method="get" novalidate>
 
+                    <div v-if="state.hasError" class="alert alert-danger" role="alert">
+                        <strong>Registro fallido</strong>, este usuario ya se encuentra registrado
+                    </div>
 
-                    
                     <div class="form-group">  
                         <label for="email">Correo</label>
                         <input v-model="formData.email" type="email" class="form-control" id="email" placeholder="Ingrese su correo">

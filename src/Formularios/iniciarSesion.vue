@@ -1,6 +1,9 @@
 <script setup>
     import { reactive, computed } from 'vue';
     import { useVuelidate } from '@vuelidate/core'
+    import{loginRequest} from '../api/auth.js'
+    import router from '../router';
+    
 
     import { 
         required,
@@ -24,23 +27,33 @@
     });
 
     const v$ = useVuelidate(rules, formData);
+
+    const state = reactive({
+    hasError: false,
+    });
+
    
- 
-    const submitForm = async () => {
+
+    async function submitForm() {
         const result = await v$.value.$validate();
         if (result) {
-            console.log(formData)
-            //alert("Se mando el formulario")
-            
+            console.log(formData);
 
-        }else{
-            //alert("error, No se envio el formulario")
-
-            
+            try {
+                const res = await loginRequest(formData);
+                console.log(res);
+                router.push({ name: 'Inicio' });
+            } catch (error) {
+                state.hasError = true;
+                console.error(error)
+            }
         }
-    };
+    }
 
-    
+
+
+
+
 </script>
 
 <template>
@@ -51,11 +64,11 @@
         <section class="container">
             <div class="form">
                 <div class="titulo-form"><label>Iniciar sesión</label></div> 
-                <form @submit.prevent="submitForm" id="form" action="" method="get" novalidate>
+                <form @submit.prevent.="submitForm" id="form" action="" method="get" novalidate>
                     
                     
         
-                        <div v-if="v$.$error == true " class="alert alert-danger" role="alert">
+                        <div v-if="v$.$error == true || state.hasError" class="alert alert-danger" role="alert">
                             <strong>Inicio de sesión fallido</strong>, correo y/o contraseña incorrecto/s
                         </div>
 
