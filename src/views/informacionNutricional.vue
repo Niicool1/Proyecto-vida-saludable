@@ -1,16 +1,11 @@
 
-<script>
+<script setup>
+
     import DataComida from '@/data/comida.json'
-    export default{
-          data(){
-              return{
-                  Alimentos: DataComida
-              }
-          }
-      }
+
+    const Alimentos = DataComida
 
 </script>
-
 
 <template>
     <div class="container-fluid bg-light bg-gradient">

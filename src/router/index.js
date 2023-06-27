@@ -17,9 +17,7 @@ const routes = [
         name:'Alimentos Recomendados', 
         component: ()=>import('@/views/alimentosRecomendados.vue'),
         meta: { requiresAuth: true },
-        beforeEnter(to, from){
-            
-        }
+
     },
     {
         path: '/perfilUsuario', 
