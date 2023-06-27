@@ -64,3 +64,37 @@ div#recomendacion {
         font-size: 18px;
     }
 }
+
+//vista perfilUsuario.vue
+.fotoPerfil{
+    width: 160px;
+    height: 160px;
+    padding:10px;
+
+}
+
+
+
+.perfil{
+    list-style: none;
+    background-color: rgb(208, 237, 239);
+    border-radius: 0.5cm;
+    li{
+        padding:10px;
+        .boton{
+            width:90%;
+            .boton2{
+                margin: 5px;
+            }
+        }
+    }
+}
+div#dashboardPerfil {
+    background-color: white;
+    border-radius:0.2cm;
+    width:95%;
+    p{
+        padding:150px;
+    }
+
+}
