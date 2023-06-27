@@ -33,6 +33,12 @@ const routes = [
         component: ()=>import('@/views/seguimientoDeportivo.vue'),
         meta: { requiresAuth: true },
     },
+    {
+        path: '/seguimientoDeportivo/nuevo', 
+        name:'Nuevo Seguimiento Deportivo', 
+        component: ()=>import('@/views/nuevoSeguimientoDeportivo.vue'),
+        meta: { requiresAuth: true },
+    },
 ]
 
 const router = createRouter({

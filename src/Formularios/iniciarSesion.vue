@@ -42,7 +42,12 @@
             try {
                 const res = await loginRequest(formData);
                 console.log(res);
-                router.push({ name: 'Inicio' });
+
+                router.push({
+                    path: "/",
+                    force: true
+                });
+
             } catch (error) {
                 state.hasError = true;
                 console.error(error)

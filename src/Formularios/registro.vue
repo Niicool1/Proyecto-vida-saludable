@@ -64,7 +64,11 @@
                 const res = await registerRequest(formData);
                 console.log(res);
                 state.hasError = false;
-                router.push({ name: 'Inicio' });
+                router.push({
+                    path: "/",
+                    force: true
+                });
+
 
             } catch (error) {
                 state.hasError = true;
