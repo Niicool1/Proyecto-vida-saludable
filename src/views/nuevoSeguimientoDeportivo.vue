@@ -1,34 +1,77 @@
 <script setup>
-import { reactive } from 'vue';
-import router from '../router';
+import { reactive, onMounted, watchEffect } from "vue";
+import router from "../router";
+import { useRoute } from "vue-router";
 
 import {
-  createRutinaRequest
-} from '../api/rutina'
 
+  createRutinaRequest,
+  getRutinaRequest,
+  updateRutinaRequest,
+
+} from "../api/rutina";
 
 const formData = reactive({
   dia: "",
   ejercicios: "",
 });
 
-
-async function submitForm() {
-
+async function updateRutina(id, rutina) {
   try {
-    const res = await createRutinaRequest(formData);
-    console.log(formData);
+    const res = await updateRutinaRequest(id,rutina);
     console.log(res);
-    router.go(-1);
-
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 }
 
+const route = useRoute();
+
+async function getRutina(id) {
+  try {
+    const res = await getRutinaRequest(id);
+    console.log(res);
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+async function cargarRutina() {
+
+  if (route.params.id) {
+
+    const rutina = await getRutina(route.params.id);
+    console.log(rutina);
+    
+  }
+}
+
+async function submitForm() {
+  try {
+    if (route.params.id) {
+      const res = await updateRutina(route.params.id,formData)
+      console.log(res);
+    }else{
+      const res = await createRutinaRequest(formData);
+      console.log(res); 
+    }
+    router.go(-1);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+watchEffect(() => {
+  cargarRutina();
+});
+
+onMounted(() => {
+  cargarRutina();
+});
+
 
 </script>
-
 
 <template>
   <div class="container-fluid bg-light bg-gradient">
@@ -39,9 +82,9 @@ async function submitForm() {
     <div class="segDeportivo container">
       <form @submit.prevent="submitForm" id="form" action="" method="get" novalidate>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
-          <div class="cajas card" style="width: 18rem;">
+          <div class="cajas card" style="width: 18rem">
             <div class="mb-3">
-              <input v-model="formData.dia" type="text" class="campo form-control" placeholder="Nombre del día">
+              <input v-model="formData.dia" type="text" class="campo form-control" placeholder="Nombre del día" />
             </div>
             <div class="form-floating mb-3">
               <textarea v-model="formData.ejercicios" class="areatexto form-control"
@@ -49,9 +92,13 @@ async function submitForm() {
               <label for="floatingTextarea">Rutina para el día</label>
             </div>
             <div class="col-12 d-flex justify-content-between">
-              <button type="submit" class="boton btn btn-success">Agregar</button>
+              <button type="submit" class="boton btn btn-success">
+                Agregar
+              </button>
               <router-link to="/seguimientoDeportivo">
-                <button type="submit" class="arriba btn btn-danger">Cancelar</button>
+                <button type="submit" class="arriba btn btn-danger">
+                  Cancelar
+                </button>
               </router-link>
             </div>
           </div>
@@ -59,10 +106,9 @@ async function submitForm() {
       </form>
     </div>
   </div>
-</template> 
+</template>
 
-
-<style lang ="scss" scoped>
+<style lang="scss" scoped>
 .container {
   margin-top: 60px;
 }
@@ -87,5 +133,5 @@ h3 {
   margin-bottom: 15px;
 }
 
-
-@import '@/assets/mainstyles.scss';</style>
+@import "@/assets/mainstyles.scss";
+</style>

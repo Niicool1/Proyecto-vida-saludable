@@ -58,7 +58,9 @@ onMounted(() => {
             <h5 class="card-title">{{ rutina.dia }}</h5>
             <p class="card-text">{{ rutina.ejercicios }}</p>
             <div v-if="showButtons" class="button-group">
-              <button type="submit" class="btn btn-warning mb-3">Editar</button>
+              <router-link :to="`/seguimientoDeportivo/${rutina._id}`">
+                <button type="submit" class="btn btn-warning mb-3">Editar</button>
+              </router-link>
               <button @click="() => {
                 eliminarDia(rutina._id);
               }" class="btn btn-danger mb-3">
@@ -69,10 +71,6 @@ onMounted(() => {
         </div>
       </div>
     </div>
-
-
-
-
   </div>
 </template>
 

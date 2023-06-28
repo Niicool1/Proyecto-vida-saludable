@@ -37,6 +37,12 @@ const routes = [
         component: ()=>import('@/views/nuevoSeguimientoDeportivo.vue'),
         meta: { requiresAuth: true },
     },
+    {
+        path: '/seguimientoDeportivo/:id', 
+        name:'Editar Seguimiento Deportivo', 
+        component: ()=>import('@/views/nuevoSeguimientoDeportivo.vue'),
+        meta: { requiresAuth: true },
+    },
 ]
 
 const router = createRouter({

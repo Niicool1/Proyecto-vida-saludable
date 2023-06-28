@@ -46,7 +46,7 @@
                 router.push({
                     path: "/",
                     force: true
-                });
+                    });
 
             } catch (error) {
                 state.hasError = true;
