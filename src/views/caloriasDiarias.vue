@@ -47,6 +47,7 @@
 
    .infoCalorias {
        padding: 20px;
-   }</style>
+   }
+</style>
   
  

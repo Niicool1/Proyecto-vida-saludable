@@ -1,6 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import Inicio from '@/views/Inicio.vue'
-//import {} from '../auth/auth.vue'
+import {initAuth} from '../auth/validarAuth'
 
 //si no se agregar las paginas aqui no se van a poder ver en el navegador
 const routes = [
@@ -16,7 +16,6 @@ const routes = [
         path: '/alimentosRecomendados', 
         name:'Alimentos Recomendados', 
         component: ()=>import('@/views/alimentosRecomendados.vue'),
-        meta: { requiresAuth: true },
 
     },
     {
@@ -50,6 +49,21 @@ const router = createRouter({
     routes
 })
 
+
+router.beforeEach((to, from, next) => {
+    initAuth().then(({ estaAutenticado }) => {
+      if (estaAutenticado.value) {
+        next();
+      } else {
+        if (to.meta.requiresAuth) {
+          next("/iniciarSesion");
+        } else {
+          next();
+        }
+      }
+    });
+  });
+  
 
 export default router
 
