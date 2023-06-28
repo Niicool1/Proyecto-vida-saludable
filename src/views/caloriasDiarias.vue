@@ -1,42 +1,52 @@
 <template>
     <div class="container-fluid bg-light bg-gradient">
+        <p class="text-white-50 text-opacity-1">.</p>
         <div class="container caloriasDiarias">
-            <div class="caloriasDiarias" id="recomendacion">
-                <li>Seguimiento calorias</li>
-                <li>
-                    <div class="form-check form-switch form-check-reverse">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckReverse">
-                        <label class="form-check-label" for="flexSwitchCheckReverse">Vista Diaria</label>
-                    </div>   
-                </li>
+            <div class="caloriasDiarias d-flex justify-content-between align-items-center" id="recomendacion">
+                <h5>Seguimiento calorias</h5>
+                <div class="form-check form-switch form-check-reverse">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckReverse">
+                    <label class="form-check-label" for="flexSwitchCheckReverse">Vista Diaria</label>
+                </div>
             </div>
-            <div class="infoCalorias border border-2 border-primary">
-                <h4 class="pb-3 mb-2 border-bottom border-2 border-primary">Hoy</h4>
-            
-                <form class="m-4 p-3">
-                    <div class="row mb-3 col-5">
-                        <label for="alimento1" class="form-label"></label>
-                        <input type="text" class="form-control-lg" id="alimento1" placeholder="Ingrese alimento consumido">
+            <div class="infoCalorias card p-3 my-3">
+                <h4 class="pb-3 mb-2 card-body">Hoy</h4>
+                <form>
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">Agregar alimento</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput"
+                            placeholder="Ingrese alimento consumido">
                     </div>
-                    <div class="row mb-3 col-5">
-                        <label for="alimento2" class="form-label"></label>
-                        <input type="text" class="form-control-lg" id="alimento2" placeholder="Ingrese alimento consumido">
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput2" class="form-label">Agregar otro alimento</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput2"
+                            placeholder="Ingrese alimento consumido">
                     </div>
-                
                 </form>
             </div>
-            <div class="infoCalorias">
+            <div class="infoCalorias mb-3">
                 <p>Calorias totales consumidas durante el día</p>
                 <p>Recomendación de alimento y horas donde comer</p>
             </div>
             <div class="d-flex flex-row-reverse">
-                <div class="p-2"><button type="submit" class="btn btn-primary btn-lg m-3" style="--bs-btn-font-size: 1rem;">Guardar</button></div>
-                <!--  --bs-btn-padding-y: 1.25rem; --bs-btn-padding-x: 1.75rem; --bs-btn-font-size: 1rem;-->
+                <button type="submit" class="btn btn-primary btn-lg m-3">Guardar</button>
             </div>
-        </div> 
+        </div>
     </div>
 </template>
+  
+<style lang='scss'>   @import '@/assets/mainstyles.scss';
 
-<style lang ="scss" scoped>
-    @import '@/assets/mainstyles.scss';
-</style>
+   .caloriasDiarias {
+       margin-top: 20px;
+   }
+
+   #recomendacion {
+       margin-bottom: 20px;
+   }
+
+   .infoCalorias {
+       padding: 20px;
+   }</style>
+  
+ 
